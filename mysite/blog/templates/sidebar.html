@@ -1,8 +1,9 @@
+{% load static %}
 {% block sidebar %}
 
 <style>
         .card{
-            box-shadow: 0 16px 48px #E3E7EB;
+            background-color: #f9f2eb;
         }
        
 </style>
@@ -10,14 +11,16 @@
 <!-- Sidebar Widgets Column -->
 <div class="col-md-4 float-right ">
 <div class="card my-4">
-        <h5 class="card-header">About Us</h5>
-    <div class="card-body">
-        <p class="card-text"> This awesome blog is made to cater the people worldwide , with delicious recipes to try at home !! Click below to explore</p>
-        <a href= "http://127.0.0.1:8000/"
-           class="btn btn-outline-info">Know more!</a>
+        <h5 class="card-header font-weight-bold">About Us</h5>
+    <div class="card-body"  stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <p class="card-text"> This awesome blog is made to cater the people worldwide , with delicious recipes to try at home !! Click below to know more</p>
+        <a class="btn btn-outline-info" href="{% url 'about_us' %}" role="button">Know More</a>
        
     </div>
 </div>
-</div>
+</div> 
+
+
+
 
 {% endblock sidebar %}
