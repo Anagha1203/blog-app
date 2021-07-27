@@ -11,7 +11,7 @@ urlpatterns = [
     #path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     # path('register/', views.registerPage, name='register'),
     path('register/', views.register, name='register'),
-    path('login', views.login_request, name='login'),
+    path('login', views.login_request1, name='login'),
     path('logout', views.logout_request, name= 'logout'),
     path('blog/<int:_id>', BlogDetailView, name='post_detail'),
     path('admin_login',post_admin,name='admin_login'),
@@ -21,4 +21,5 @@ urlpatterns = [
     
     
 ]
+
 

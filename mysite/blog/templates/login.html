@@ -11,8 +11,41 @@
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 <!--Login--> 
 <body >
-    
-<div class="container py-5" >
+  <style>
+        #card {
+              background-color: #f9f2eb;
+              position: center;
+                   }
+        
+  </style>
+
+  <div class="container">
+  <div class="row">
+                <div class="col-md-8 card mb-4 mt-3 center" id="card">
+                  <div class="card-body">
+            <form method="POST" action="/login" id="login">
+                        {% csrf_token %}
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+                            <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                                  </form>
+                                    <p class="text-center">Don't have an account? <a href="{% url 'register' %}">Create an account</a>.</p>
+                    </div>
+                </div>
+    </div>
+</div>
+{% comment %} <div class="container py-5" >
   <h1>Login</h1>
   <form method="POST" id="login">
     {% csrf_token %}
@@ -20,7 +53,7 @@
     <button class="btn btn-primary" type="submit">Login</button>
   </form>
   <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
-</div> 
+</div>  {% endcomment %}
 
 </body>
 </html>

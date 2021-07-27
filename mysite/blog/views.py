@@ -21,6 +21,7 @@ from .models import Post,CommentModel
 
 
 
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -61,6 +62,23 @@ def register(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
+
+    
+# def register(request):
+#     if request.method == "POST":
+#        username = request.POST.get('username')
+#        email = request.POST.get('email')
+#        password = request.POST.get('password') 
+#        user = authenticate(username=username, password=password, email=email)
+#        if user is not None:
+#                 login(request, user)
+#                 messages.success(request, "Registration successful." )
+#                 return redirect("http://127.0.0.1:8000/login")
+#     else:
+# 		        messages.error(request, "Unsuccessful registration. Invalid information.")
+#     return render (request=request, template_name="register.html")
+
+
 
 
 def login_request(request):
@@ -139,3 +157,27 @@ def BlogDetailView(request,_id):
             'comments':comments,
         }
     return render(request,'post_detail.html',context)
+
+
+def login_request1(request):
+    if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                # data = Post.objects.filter(status=1).order_by('-created_on')
+                # context = {
+                #             'data':data,
+
+                #         }
+                return redirect("http://127.0.0.1:8000/")
+                #return render(request,'index.html',context)
+
+            else:
+                messages.error(request,"Invalid username or password.")
+
+    
+    return render(request=request, template_name="login.html")

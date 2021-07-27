@@ -5,15 +5,53 @@
 {% load crispy_forms_tags %}          
 
 <!--Register--> 
-<div class="container py-5">
+ <div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4 mt-3 left top">
+      <div class="card-body">
+
 	<h1>Register</h1>
 	<form method="POST">
 		{% csrf_token %}
 		{{ register_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
+		
+		<button type="submit" class="btn btn-outline-info">Register</button>
 	</form>
 	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
-</div>
+		</div>
+	 </div>
+ </div>
+</div> 
+
+{% comment %} <div class="container">
+  <div class="row">
+                <div class="col-md-8 card mb-4 mt-3 center" id="card">
+                  <div class="card-body">
+            <form method="POST" action="/register/">
+                        {% csrf_token %}
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+							<label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                            <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                                  </form>
+                        <p class="text-center">If you already have an account, <a href="{% url 'login' %}">login</a> instead.</p>            
+                    </div>
+                </div>
+    </div>
+</div> {% endcomment %}
+	
 
 {% endblock %}
 {% comment %} <h3>Register</h3>
