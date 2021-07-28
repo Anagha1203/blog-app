@@ -72,19 +72,19 @@
                               <form action="{% url 'contact' %}" method="post" >
                               {% csrf_token %}
                               <div class="row">
-                              <div class="col-lg-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <div class="col-lg-6 mb-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
                               </div>
                               
-                              <div class="col-lg-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <div class="col-lg-6 mb-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                               <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
                               </div>
 
-                              <div class="col12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <div class="col12 mb-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                               <textarea name="message"  class="form-control mb-30" placeholder="Your message"></textarea>
                               </div>
                               
-                              <div class="col-12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <div class="col-12 mb-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                               <button type="submit" class="btn btn-outline-info">Send message</button>
                               </div>
                               </div>  
