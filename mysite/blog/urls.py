@@ -3,7 +3,7 @@ from django.urls import path,include
 from django.contrib import admin
 
 
-from blog.views import post_admin,BlogDetailView,about_us,contact,policy
+from blog.views import post_admin,BlogDetailView,about_us,contact,policy,search
 
 
 urlpatterns = [
@@ -18,6 +18,7 @@ urlpatterns = [
     path('about_us', about_us, name='about_us'),
     path('policy', policy, name='policy'),
     path('contact', contact , name='contact'),
+    path('search',views.search,name="search"),
     
     
 ]

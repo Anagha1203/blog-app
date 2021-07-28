@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
+
 # Create your views here.
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.views.generic.list import ListView
 from .forms import NewUserForm
 from django.contrib.auth import login
 from django.contrib.auth import login, authenticate
@@ -22,6 +24,7 @@ from .models import Post,CommentModel
 
 
 
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -31,21 +34,7 @@ class PostDetail(generic.DetailView):
     model = Post
     template_name = 'post_detail.html'
 
-# def registerPage(request):
-#     form = UserCreationForm()
 
-
-#     if request.method == 'POST':
-#          form = UserCreationForm(request.POST)
-#          if form.is_valid():
-#              form.save()
-
-#     context = {'form':form}
-#     return render(request, 'register.html', context)
-
-# def loginPage(request):
-#     context = {}
-#     return render(request, 'login.html', context)
 
 
 
@@ -62,21 +51,6 @@ def register(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
-
-    
-# def register(request):
-#     if request.method == "POST":
-#        username = request.POST.get('username')
-#        email = request.POST.get('email')
-#        password = request.POST.get('password') 
-#        user = authenticate(username=username, password=password, email=email)
-#        if user is not None:
-#                 login(request, user)
-#                 messages.success(request, "Registration successful." )
-#                 return redirect("http://127.0.0.1:8000/login")
-#     else:
-# 		        messages.error(request, "Unsuccessful registration. Invalid information.")
-#     return render (request=request, template_name="register.html")
 
 
 
@@ -153,9 +127,12 @@ def BlogDetailView(request,_id):
         comment=CommentModel(your_name=your_name,comment_text=comment_text,blog=data)
         comment.save()
         return redirect(f'/blog/{_id}')
+    
+   
     context = {
             'data':data,
             'comments':comments,
+            
         }
     return render(request,'post_detail.html',context)
 
@@ -182,3 +159,16 @@ def login_request1(request):
 
     
     return render(request=request, template_name="login.html")
+
+
+
+def search(request):
+    query=request.GET['query']
+    data =Post.objects.filter(title__icontains=query)
+    context = {
+            'post_list':data,
+
+        }
+    return render(request,'search.html',context)
+    
+    

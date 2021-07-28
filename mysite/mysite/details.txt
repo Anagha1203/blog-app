@@ -1,0 +1,21 @@
+DETAILS :
+
+NAME : ANAGHA ANIL SHINDE
+MOBILE NO. : 9867992928
+MAIL ID : shindeanani19ce@student.mes.ac.in
+TASK : PYTHON / DJANGO 
+BLOG WEB APP : 
+(Customize the design of the blog to match the blog’s theme and 
+you can provide the functionality to add a blog for the
+Admin and other viewers can read your blogs and post comments.)
+
+BLOG THEME : FOOD/BAKING BLOG 
+BLOG NAME : BROWNIE POINTS
+FUNCTIONS : 
+ADMIN CAN ADD POSTS
+REGISTRATION & LOGIN PROVIDED FOR USERS
+SEARCH FIELD IS PROVIDED 
+VIEWERS CAN COMMENT ON THE BLOG POSTS
+VIEWERS CAN PROVIDE FEEDBACK 
+
+LANGUAGE : PYTHON , HTML & CSS 
